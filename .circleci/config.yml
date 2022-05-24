@@ -1371,7 +1371,7 @@ jobs:
       - gitter_notify_failure_unless_pr
 
   b_bytecode_osx:
-    <<: *base_osx
+    <<: *base_osx_large
     steps:
       - checkout
       - attach_workspace:
