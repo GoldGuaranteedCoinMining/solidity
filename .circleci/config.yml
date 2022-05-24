@@ -1188,11 +1188,12 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - run:
-          name: Install lsof
+          name: Install extra dependencies for (lsof, Python)
           command: |
             # lsof is used by Colony in its stop-blockchain-client.sh script
+            # python is used by node-gyp to build native modules (needed for Colony)
             sudo apt update
-            sudo apt install lsof --assume-yes --no-install-recommends
+            sudo apt install lsof python --assume-yes --no-install-recommends
       - when:
           condition:
             equal: [<< parameters.binary_type >>, "solcjs"]
