@@ -100,6 +100,11 @@ function zeppelin_test
     sed -i 's|it(\(`reverts when downcasting 2^\${bits} + 1 (\${maxValue.addn(2)})`\)|it.skip(\1|g' test/utils/math/SafeCast.test.js
     sed -i 's|it(\(`reverts when casting [^`]\+`\)|it.skip(\1|g' test/utils/math/SafeCast.test.js
     sed -i "s|it(\('missing value'\)|it.skip(\1|g" test/utils/structs/EnumerableMap.behavior.js
+    sed -i "s|it(\('reverts when queried for non existent token id'\)|it.skip(\1|g" test/token/ERC721/ERC721.behavior.js
+    sed -i "s|it(\('reverts if index is greater than supply'\)|it.skip(\1|g" test/token/ERC721/ERC721.behavior.js
+    sed -i "s|it(\('burns all tokens'\)|it.skip(\1|g" test/token/ERC721/ERC721.behavior.js
+    sed -i "s|it(\('other accounts cannot pause'\)|it.skip(\1|g" test/token/ERC721/presets/ERC721PresetMinterPauserAutoId.test.js
+    sed -i "s|it(\('other accounts cannot unpause'\)|it.skip(\1|g" test/token/ERC721/presets/ERC721PresetMinterPauserAutoId.test.js
 
     # TODO: Remove this when https://github.com/NomicFoundation/hardhat/issues/2115 gets fixed.
     sed -i "s|describe\(('Polygon-Child'\)|describe.skip\1|g" test/crosschain/CrossChainEnabled.test.js
